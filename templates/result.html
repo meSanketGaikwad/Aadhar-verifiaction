@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Result</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Extraction Result</h1>
+      {% if error %}
+      <div class="error">{{ error }}</div>
+      {% else %}
+      <table>
+        <tr>
+          <th>Field</th>
+          <th>Value</th>
+        </tr>
+        {% for k,v in data.items() %}
+        <tr>
+          <td>{{ k }}</td>
+          <td>{{ v if v else 'not present' }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% endif %}
+      <a href="/">Upload another</a>
+    </div>
+  </body>
+</html>
